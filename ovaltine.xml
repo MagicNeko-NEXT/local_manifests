@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- OnePlus 10T (ovaltine) on PixelOS seventeen. Local manifest, not a complete one. -->
+<!-- OnePlus 10T (ovaltine) on PixelOS seventeen (Linux 6.6). Local manifest, not a complete one. -->
 <manifest>
-  <remote name="pixelos-ovaltine" fetch="https://github.com/pixelos-ovaltine" revision="refs/heads/seventeen" />
+  <remote name="magicneko" fetch="https://github.com/MagicNeko-NEXT" revision="refs/heads/seventeen" />
 
   <!-- Device -->
-  <project path="device/oneplus/ovaltine" name="android_device_oneplus_ovaltine" remote="pixelos-ovaltine" />
-  <project path="device/oneplus/sm8450-common" name="android_device_oneplus_sm8450-common" remote="pixelos-ovaltine" />
+  <project path="device/oneplus/ovaltine" name="android_device_oneplus_ovaltine" remote="magicneko" />
+  <project path="device/oneplus/sm8450-common" name="android_device_oneplus_sm8450-common" remote="magicneko" />
 
   <!-- Vendor -->
-  <project path="vendor/oneplus/ovaltine" name="proprietary_vendor_oneplus_ovaltine" remote="pixelos-ovaltine" />
-  <project path="vendor/oneplus/sm8450-common" name="proprietary_vendor_oneplus_sm8450-common" remote="pixelos-ovaltine" />
-  <project path="vendor/extra" name="android_vendor_extra" remote="pixelos-ovaltine" />
+  <project path="vendor/oneplus/ovaltine" name="proprietary_vendor_oneplus_ovaltine" remote="magicneko" />
+  <project path="vendor/oneplus/sm8450-common" name="proprietary_vendor_oneplus_sm8450-common" remote="magicneko" />
+  <project path="vendor/extra" name="android_vendor_extra" remote="magicneko" />
 
   <!-- Hardware -->
-  <project path="hardware/oplus" name="android_hardware_oplus" remote="pixelos-ovaltine" />
+  <project path="hardware/oplus" name="android_hardware_oplus" remote="magicneko" />
 
-  <!-- UDFPS HBM: UdfpsExtension and SDM extension hooks -->
-  <remove-project name="LineageOS/android_hardware_qcom_display" path="hardware/qcom-caf/sm8450/display" />
-  <project path="hardware/qcom-caf/sm8450/display" name="android_hardware_qcom_display" remote="pixelos-ovaltine" />
+  <!-- Display HAL (UDFPS HBM / DSPP PCC fallback / sde_preferred) -->
+  <remove-project name="LineageOS/android_hardware_qcom_display" path="hardware/qcom-caf/sm8450-6.6/display/hal" />
+  <project path="hardware/qcom-caf/sm8450-6.6/display/hal" name="android_hardware_qcom_display" remote="magicneko" />
 
   <!-- livedisplay: degrade instead of aborting when the SDM backend fails -->
   <remove-project name="LineageOS/android_hardware_lineage_interfaces" path="hardware/lineage/interfaces" />
-  <project path="hardware/lineage/interfaces" name="android_hardware_lineage_interfaces" remote="pixelos-ovaltine" />
+  <project path="hardware/lineage/interfaces" name="android_hardware_lineage_interfaces" remote="magicneko" />
 
-  <!-- Kernel -->
-  <project path="kernel/oneplus/sm8450" name="android_kernel_oneplus_sm8450" remote="pixelos-ovaltine" />
-  <project path="kernel/oneplus/sm8450-devicetrees" name="android_kernel_oneplus_sm8450-devicetrees" remote="pixelos-ovaltine" />
-  <project path="kernel/oneplus/sm8450-modules" name="android_kernel_oneplus_sm8450-modules" remote="pixelos-ovaltine" />
+  <!-- Kernel (Linux 6.6) -->
+  <project path="kernel/oneplus/sm8450" name="android_kernel_oneplus_sm8450" remote="magicneko" />
+  <project path="kernel/oneplus/sm8450-devicetrees" name="android_kernel_oneplus_sm8450-devicetrees" remote="magicneko" />
+  <project path="kernel/oneplus/sm8450-modules" name="android_kernel_oneplus_sm8450-modules" remote="magicneko" />
   <!-- Word order differs from the other kernel repos -->
-  <project path="kernel/oneplus/gki-modules" name="android_oneplus_kernel_gki-modules" remote="pixelos-ovaltine" />
+  <project path="kernel/oneplus/gki-modules" name="android_oneplus_kernel_gki-modules" remote="magicneko" />
 </manifest>
